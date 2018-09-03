@@ -21,7 +21,7 @@ server:
   port: 5002
   host: localhost
 schema:
-- name: golog
+- name: vewlog
   path: .
   commands:
       run:
