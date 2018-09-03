@@ -1,7 +1,8 @@
 package handler
 
 import(
-	gin "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
+
 	user "vewlog/handlers/user"
 )
 

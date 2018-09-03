@@ -6,7 +6,7 @@ Run the following commands in your command line
 ```
  // Package Manager
 go get -u github.com/kardianos/govendor
-
+go get github.com/oxequa/realize
 ```
 
 ### Govendor

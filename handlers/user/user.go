@@ -3,7 +3,7 @@ package user
 import(
 	"net/http"
 
-	gin "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 func getUsers(c *gin.Context) {
