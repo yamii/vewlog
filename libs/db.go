@@ -8,7 +8,7 @@ import(
 	"github.com/jinzhu/gorm"
 )
 
-var Dbconn *gorm.DB
+var conn *gorm.DB
 
 func InitDB() {
 	user     := os.Getenv("DB_USER")
@@ -25,10 +25,19 @@ func InitDB() {
 
 	conn, err := gorm.Open("postgres", dbUri)
 	if err != nil {
-		//log.Fatal("Error connecting to DB: %s", dbUri)
+		log.Println("Error connecting to DB: %s", dbUri)
 	}
 
-	Dbconn = conn
+	conn = conn
 	// automigrate
 	//db.Debug().Automigrate()
+}
+
+func GetDB() *gorm.DB {
+	// get connection if no connection aquired
+	if conn == nil {
+		InitDB()
+	}
+
+	return conn
 }

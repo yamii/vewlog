@@ -4,14 +4,17 @@ A log viewer tool for different projects using golang.
 ## Prerequisites
 Run the following commands in your command line
 ```
- // Package Manager
+// Package Manager
 go get -u github.com/kardianos/govendor
-go get github.com/oxequa/realize
+// live reloading tool
+go get github.com/oxequa/realizego
+// DB migration tool 
+get -u github.com/pressly/goose/cmd/goose
 ```
 
 ### Govendor
 ```
-Fetch or Install:
+Fetch or Install: 
 	run `govendor fetch <packagename>`
 Pull packages into vendor folder
 	run `govendor sync`
@@ -39,3 +42,4 @@ Pull packages into vendor folder
 * [Gin-Gonic Golang Web Framework](https://github.com/gin-gonic/gin)
 * [Go HTTP/NET](https://golang.org/pkg/net/http/)
 * [Realize - Go live reloading](https://github.com/oxequa/realize)
+* [Go Validator](https://github.com/thedevsaddam/govalidator)

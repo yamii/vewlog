@@ -93,6 +93,12 @@
 			"revisionTime": "2018-07-18T01:23:57Z"
 		},
 		{
+			"checksumSHA1": "fQzpJnTTxhpCCVwivl7nXveGuC0=",
+			"path": "github.com/thedevsaddam/govalidator",
+			"revision": "34b7b543c06d4b0e266fc226089c846a2ab7a925",
+			"revisionTime": "2018-06-13T07:08:28Z"
+		},
+		{
 			"checksumSHA1": "r5mYMnU412QZoiUqOxq/mJLYc4M=",
 			"path": "github.com/ugorji/go/codec",
 			"revision": "e253f1f20942cb6dc505e504e8bbba4b7f434cb2",
