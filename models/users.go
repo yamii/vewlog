@@ -1,23 +1,38 @@
 package  models
 
 import(
-	"crypto/bcrypt"
-	"github.com/jinzhu/gorm"
+    //"log"
+    "gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2"
 
-	"vewlog/libs"
+    libs "vewlog/libs"
+)
+
+const (
+    collection = "users"
 )
 
 type User struct {
-	gorm.Model
-	Name string `json:"name"`
-	Username string `json:"username`
-	Password string `json:"password"`
+	Id       bson.ObjectId `bson:"_id,omitempty"`
+    Name     string `json:name binding:"-"`
+    Username string `json:"username" binding:"required"`
+    Password string `json:"password" binding:"required"`
 }
 
+func (user *User) userIndex() mgo.Index {
+	return mgo.Index {
+		Key        : []string{"username"},
+		Unique     : true,
+		DropDups   : true,
+		Background : true,
+		Sparse     : true,
+	}
+}
 
-func (user *User) Create() (map[string] interface{}) {
-	hashedPassword, _ := brcypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-	user.password = string(hashedPassword)
-
-	libs.GetDb().Create(account)
+/*
+ * @user User struct
+*/
+func (user *User) Create()error {
+    err := libs.GetMongo().GetDB().C(collection).Insert(&user)
+    return err
 }

@@ -29,8 +29,6 @@ func InitDB() {
 	}
 
 	conn = conn
-	// automigrate
-	//db.Debug().Automigrate()
 }
 
 func GetDB() *gorm.DB {

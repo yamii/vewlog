@@ -6,6 +6,8 @@ import(
 
 	"github.com/gin-gonic/gin"
 	"github.com/thedevsaddam/govalidator"
+
+	"vewlog/models"
 )
 
 func getUsers(c *gin.Context) {
@@ -15,14 +17,17 @@ func getUsers(c *gin.Context) {
 }
 
 func createUser(c *gin.Context) {
-	name     := c.PostForm("name")
-	username := c.PostForm("username")
-	password := c.PostForm("password")
+	user := &models.User{}
+	if err := c.ShouldBindJSON(user); err != nil {
+		fmt.Println("Error: ", err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-	str := fmt.Sprintf("name=%s, username=%s, password=%s", name, username, password)
+	str := fmt.Sprintf("name=%s, username=%s, password=%s", user.Name, user.Username, user.Password)
 	fmt.Println(str)
 
-
+	user.Create()
 	c.JSON(http.StatusOK, gin.H{
 		"hello": "Created",
 	})

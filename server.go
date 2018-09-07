@@ -26,7 +26,8 @@ func init() {
 		log.Fatal("Error loading .env file")
 	}
 
-	libs.InitDB()
+	// Connect all datasources here
+	libs.GetMongo().Connect("vewlogs")
 }
 
 // Entrypoint of the Application
