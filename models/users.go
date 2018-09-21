@@ -29,10 +29,23 @@ func (user *User) userIndex() mgo.Index {
 	}
 }
 
+func userModelIndex() mgo.Index {
+    return mgo.Index {
+        Key        : []string{"username"},
+        Unique     : true,
+        DropDups   : true,
+        Background : true,
+        Sparse     : true,
+    }
+}
+
 /*
  * @user User struct
 */
 func (user *User) Create()error {
-    err := libs.GetMongo().GetDB().C(collection).Insert(&user)
+    table := libs.GetMongo().GetDB().C(collection)
+    table.EnsureIndex(userModelIndex())
+
+    err := table.Insert(&user)
     return err
 }
