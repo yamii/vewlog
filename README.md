@@ -8,13 +8,13 @@ Run the following commands in your command line
 go get -u github.com/kardianos/govendor
 // live reloading tool
 go get github.com/oxequa/realizego
-// DB migration tool 
+// DB migration tool
 get -u github.com/pressly/goose/cmd/goose
 ```
 
 ### Govendor
 ```
-Fetch or Install: 
+Fetch or Install:
 	run `govendor fetch <packagename>`
 Pull packages into vendor folder
 	run `govendor sync`
@@ -30,8 +30,9 @@ Pull packages into vendor folder
 * Run `realize start`
 
 ### Frontend
+* `npm install -g @vue/cli` || `yarn global add @vue/cli`
 * `cd vewlog/views`
-* `npm start`  || `yarn start`
+* Refer to `vewlog/views/Readme.md` for more info
 
 ** Documentation in progress **
 

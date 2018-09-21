@@ -36,7 +36,7 @@ func main() {
 
 	router.Use(libs.BeforeMiddleware())
 	// Serve Static Files
-	router.Use(static.Serve("/", static.LocalFile("./views/build", true)))
+	router.Use(static.Serve("/", static.LocalFile("./views/dist", true)))
 
 	handler.SetupRoutes(router)
 
